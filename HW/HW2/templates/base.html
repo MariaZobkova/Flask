@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Мой сайт{% endblock title %}</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+{% block menu %}
+{% for item in menu_items %}
+<li><a href="{{ item.url }}">{{ item.name }}</a></li>
+{% endfor %}
+{% endblock menu %}
+{% block content %}
+
+<div class="about">
+ <div class="container">
+     <form action="/set_cookie" method="post">
+        <input type="text" name="name" placeholder="Имя">
+        <input type="email" name="email" placeholder="Электронная почта">
+        <input type="submit" value="Отправить">
+     </form>
+ </div>
+</div>
+{% endblock content %}
+</body>
+</html>
